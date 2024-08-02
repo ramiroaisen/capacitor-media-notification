@@ -24,6 +24,40 @@ export interface CapacitorMusicControlsInfo {
     closeIcon?: string;
     notificationIcon?: string;
 }
+
+export type EventKind = 
+  | "music-controls-play"
+  | "music-controls-pause"
+  | "music-controls-next"
+  | "music-controls-previous"
+  | "music-controls-toggle-play-pause"
+  | "music-controls-stop"
+  | "music-controls-skip-forward"
+  | "music-controls-skip-backward"
+  | `music-controls-media-button-uknown-${string}`
+
+  // what is this
+  | "music-controls-stop-listening"
+
+  | "music-controls-headset-unplugged"
+  | "music-controls-headset-plugged"
+
+  | "music-controls-fast-forward"
+  | "music-controls-fast-rewind"
+  | "music-controls-step-backward"
+  | "music-controls-step-forward"
+
+  | "music-controls-meta-left"
+  | "music-controls-meta-right"
+
+  | "music-controls-music"
+  | "music-controls-volume-up"
+  | "music-controls-volume-down"
+  | "music-controls-volume-mute"
+
+  | "music-controls-headset-hook"
+  | "music-controls-destroy"
+
 export interface CapacitorMusicControlsPlugin {
     /**
      * Create the media controls
@@ -56,5 +90,5 @@ export interface CapacitorMusicControlsPlugin {
      * @param dismissable {boolean}
      */
     updateDismissable(dismissable: boolean): void;
-    addListener(event: string, callback: (info: any) => void): Promise<PluginListenerHandle>;
+    addListener(event: "event", callback: ({ kind }: { kind: EventKind }) => void): Promise<PluginListenerHandle>;
 }

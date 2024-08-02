@@ -1,6 +1,5 @@
 import { WebPlugin } from '@capacitor/core';
-
-import { CapacitorMusicControlsInfo, CapacitorMusicControlsPlugin } from ".";
+import { CapacitorMusicControlsPlugin } from ".";
 
 export class CapacitorMusicControlsWeb extends WebPlugin implements CapacitorMusicControlsPlugin {
     constructor() {
@@ -10,25 +9,10 @@ export class CapacitorMusicControlsWeb extends WebPlugin implements CapacitorMus
         });
     }
 
-    create(options: CapacitorMusicControlsInfo): Promise<any> {
-        console.log('create', options);
-        return Promise.resolve(undefined);
-    }
-
-    destroy(): Promise<any> {
-        return Promise.resolve(undefined);
-    }
-
-    updateDismissable(dismissable: boolean): void {
-        console.log('updateDismissable', dismissable);
-    }
-
-    updateElapsed(args: { elapsed: number; isPlaying: boolean }): void {
-        console.log('updateElapsed', args);
-    }
-
-    updateIsPlaying(args: { elapsed: number; isPlaying: boolean }): void {
-        console.log('updateIsPlaying', args);
-    }
+    async create(): Promise<void> {}
+    async destroy(): Promise<void> {}
+    async updateDismissable(): Promise<void> {}
+    async updateElapsed(): Promise<void> {}
+    async updateIsPlaying(): Promise<void> {}
 
 }

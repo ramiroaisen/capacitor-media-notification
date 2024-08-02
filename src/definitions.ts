@@ -30,15 +30,15 @@ export interface CapacitorMusicControlsPlugin {
     /**
      * Create the media controls
      * @param options {MusicControlsOptions}
-     * @returns {Promise<any>}
+     * @returns {Promise<void>}
      */
-    create(options: CapacitorMusicControlsInfo): Promise<any>;
+    create(options: CapacitorMusicControlsInfo): Promise<void>;
 
     /**
      * Destroy the media controller
-     * @returns {Promise<any>}
+     * @returns {Promise<void>}
      */
-    destroy(): Promise<any>;
+    destroy(): Promise<void>;
 
     /**
      * Toggle play/pause:
@@ -61,7 +61,7 @@ export interface CapacitorMusicControlsPlugin {
      * Toggle dismissable:
      * @param dismissable {boolean}
      */
-    updateDismissable(dismissable: boolean): void;
+    updateDismissable({ dismissable } : { dismissable: boolean }): void;
 
     addListener(event: string, callback: (info: any) => void): Promise<PluginListenerHandle>
 }
